@@ -1,0 +1,49 @@
+{
+    "name": "hexpick",
+    "version": "1.0.0",
+    "description": "A simple color picker app for Linux",
+    "main": "./src/app.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-builder --linux"
+    },
+    "build": {
+        "appId": "hexpick",
+        "productName": "HexPick",
+        "copyright": "© 2024 Jan Straßburger",
+        "mac": {
+            "target": "dmg",
+            "icon": "src/public/img/logo.icns"
+        },
+        "linux": {
+            "target": [
+                "deb",
+                "snap"
+            ],
+            "category": "Utility",
+            "icon": "src/public/img/logo.icns",
+            "artifactName": "hexpick-${version}.${ext}",
+            "maintainer": "Jan Straßburger",
+            "vendor": "Jan Straßburger",
+            "synopsis": "A simple color picker app for Linux"
+        }
+    },
+    "keywords": ["electron", "colorpicker", "app", "desktop", "application", "color", "picker", "rgb", "hex", "hsl", "hsv", "cmyk"],
+    "author": {
+        "name": "Jan Straßburger",
+        "email": "contact@strassburger.org",
+        "url": "https://strassburger.org/"
+    },
+    "homepage": "https://github.com/kartoffelchipss/hexpick",
+    "license": "GNU General Public License v3.0",
+    "devDependencies": {
+        "electron": "^22.0.0",
+        "electron-builder": "^24.9.1"
+    },
+    "dependencies": {
+        "electron-color-picker": "^0.2.0",
+        "electron-store": "^8.1.0",
+        "fs": "^0.0.1-security",
+        "path": "^0.12.7"
+    }
+}

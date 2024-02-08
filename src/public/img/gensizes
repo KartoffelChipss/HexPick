@@ -1,0 +1,15 @@
+#!/bin/bash
+
+read -p "Input image: " imgpath
+
+echo "Resizing..."
+
+convert $imgpath -resize 512x512 logo_512x512.png
+convert $imgpath -resize 256x256 logo_256x256.png
+convert $imgpath -resize 128x128 logo_128x128.png
+convert $imgpath -resize 64x64 logo_64x64.png
+convert $imgpath -resize 32x32 logo_32x32.png
+convert $imgpath -resize 48x48 logo_48x48.png
+convert $imgpath -resize 16x16 logo_16x16.png
+
+echo "Resized $imgpath!"

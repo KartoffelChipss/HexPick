@@ -1,0 +1,19 @@
+#!/bin/bash
+
+input_filepath="logo.png"
+output_iconset_name="logo.iconset"
+mkdir $output_iconset_name
+
+convert $input_filepath -resize 16x16 "${output_iconset_name}/icon_16x16.png"
+convert $input_filepath -resize 32x32 "${output_iconset_name}/icon_16x16@2x.png"
+convert $input_filepath -resize 32x32 "${output_iconset_name}/icon_32x32.png"
+convert $input_filepath -resize 64x64 "${output_iconset_name}/icon_32x32@2x.png"
+convert $input_filepath -resize 128x128 "${output_iconset_name}/icon_128x128.png"
+convert $input_filepath -resize 256x256 "${output_iconset_name}/icon_128x128@2x.png"
+convert $input_filepath -resize 256x256 "${output_iconset_name}/icon_256x256.png"
+convert $input_filepath -resize 512x512 "${output_iconset_name}/icon_256x256@2x.png"
+convert $input_filepath -resize 512x512 "${output_iconset_name}/icon_512x512.png"
+
+icotool -c $output_iconset_name
+
+#rm -R $output_iconset_name

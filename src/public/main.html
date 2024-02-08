@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorPicker</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="dragbar">
+        <div class="title">
+            <img src="./img/logo.svg">
+            <h3 id="title">HexPick <span id="version"></span></h3>
+        </div>
+        <div class="btns">
+            <button type="button" onclick="window.api.invoke('minimizeMainWindow')"><svg width="64px" height="64px" viewBox="0 0 24 24"
+                    fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fefefe">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z" fill="#fefefe"></path></g>
+                </svg></button>
+            <button type="button" onclick="window.api.invoke('closeMainWindow')" class="close"><svg width="64px" height="64px"
+                    viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fefefe">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"><path d="M3 21.32L21 3.32001" stroke="#fefefe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 3.32001L21 21.32" stroke="#fefefe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g>
+                </svg></button>
+        </div>
+    </div>
+
+    <main>
+        <section>
+            <div id="pickBtnWrapper">
+                <button type="button" id="pickBtn" onclick="pickColor()">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fefefe"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.00002 14L14 14.0001L10.4059 17.5942C9.88703 18.113 9.6276 18.3725 9.32485 18.558C9.05644 18.7225 8.7638 18.8437 8.4577 18.9172C8.11243 19.0001 7.74555 19.0001 7.01178 19.0001H6L3 21.0001L5 18.0001V16.9883C5 16.2545 5 15.8876 5.08289 15.5424C5.15638 15.2363 5.27759 14.9436 5.44208 14.6752C5.6276 14.3725 5.88703 14.113 6.40589 13.5942L10 10.0001M12.5 7.50006L16 4.00006C17.1046 2.89549 18.8954 2.89549 20 4.00006C21.1046 5.10463 21.1046 6.89549 20 8.00006L16.5 11.5001M11 6.00006L18 13.0001" stroke="#fefefe" stroke-width="1.752" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                </button>
+            </div>
+
+            <div class="colorBox" id="mainColorBox">
+                <div class="hexinput">
+                    <div class="color" style="--box-color: #fefefe"></div>
+                    <input type="text" spellcheck="false" autocorrect="off" value="#fefefe">
+                </div>
+                <div class="rgb">
+                    <input type="text" class="r" spellcheck="false" autocorrect="off" value="255">
+                    <input type="text" class="g" spellcheck="false" autocorrect="off" value="255">
+                    <input type="text" class="b" spellcheck="false" autocorrect="off" value="255">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="lastColors">
+                <div class="colorBox">
+                    <div class="hexinput">
+                        <div class="color" style="--box-color: #fefefe"></div>
+                        <input type="text" spellcheck="false" autocorrect="off" value="#fefefe">
+                    </div>
+                    <div class="rgb">
+                        <input type="text" class="r" spellcheck="false" autocorrect="off" value="255">
+                        <input type="text" class="g" spellcheck="false" autocorrect="off" value="255">
+                        <input type="text" class="b" spellcheck="false" autocorrect="off" value="255">
+                    </div>
+                </div>
+                <div class="colorBox">
+                    <div class="hexinput">
+                        <div class="color" style="--box-color: #fefefe"></div>
+                        <input type="text" spellcheck="false" autocorrect="off" value="#fefefe">
+                    </div>
+                    <div class="rgb">
+                        <input type="text" class="r" spellcheck="false" autocorrect="off" value="255">
+                        <input type="text" class="g" spellcheck="false" autocorrect="off" value="255">
+                        <input type="text" class="b" spellcheck="false" autocorrect="off" value="255">
+                    </div>
+                </div>
+                <div class="colorBox">
+                    <div class="hexinput">
+                        <div class="color" style="--box-color: #fefefe"></div>
+                        <input type="text" spellcheck="false" autocorrect="off" value="#fefefe">
+                    </div>
+                    <div class="rgb">
+                        <input type="text" class="r" spellcheck="false" autocorrect="off" value="255">
+                        <input type="text" class="g" spellcheck="false" autocorrect="off" value="255">
+                        <input type="text" class="b" spellcheck="false" autocorrect="off" value="255">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

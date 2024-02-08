@@ -1,0 +1,133 @@
+@import url("./assets.css");
+
+#pickBtnWrapper {
+    --padding: 0px;
+    width: calc(100% - var(--padding) * 2);
+    padding: var(--padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 100%;
+        // max-width: 100px;
+        // aspect-ratio: 1/1;
+        padding: 7px;
+        border-radius: 12px;
+
+        border: none;
+        background-color: var(--grey-2);
+        transition: filter .1s ease-in-out;
+
+        svg {
+            height: 70%;
+            max-height: 100px;
+            aspect-ratio: 1/1;
+        }
+
+        &:hover {
+            cursor: pointer;
+            filter: brightness(0.95);
+        }
+    }
+}
+
+.colorBox {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+
+    .hexinput {
+        display: flex;
+        align-items: center;
+
+        margin-bottom: 8px;
+
+        .color {
+            background-color: var(--box-color);
+            height: 100%;
+            aspect-ratio: 1/1;
+            margin-right: 7px;
+            border-radius: 3px;
+        }
+
+        input {
+            min-width: 0px;
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            height: 100%;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            padding: 2px 7px;
+        }
+    }
+
+    .rgb {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        overflow: hidden;
+
+        input {
+            min-width: 0px;
+            flex-grow: 1;
+            width: unset;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            height: 100%;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            padding: 5px 8px;
+        }
+    }
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+    padding: 15px;
+    padding-top: 2px;
+    gap: 30px;
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        flex-grow: 1;
+        max-width: calc(50% - 15px);
+
+        &:first-of-type {
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .lastColors {
+            max-width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            justify-content: spac;
+            gap: 15px;
+        }
+    }
+}
+
+#version {
+    color: var(--text-2);
+    font-size: 11px;
+}

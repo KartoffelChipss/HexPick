@@ -1,9 +1,17 @@
-<div align="center">
-    <img src="https://file.strassburger.dev/hexpick.svg" height="35px" style="margin-right: 10px:">
-    <h1>HexPick</h1>
-</div>
+<br>
+<center>
+<p align="center">
+  <a href="https://github.com/KartoffelChipss/HexPick">
+    <img src="https://file.strassburger.dev/hexpick.svg" alt="Logo" width="80" height="80">
+  </a>
 
-A (very) simple color picker app for Linux using Electron.
+  <h3 align="center">HexPick</h3>
+
+  <p align="center">
+      A (very) simple color picker app for Linux using Electron.
+  </p>
+</p>
+</center>
 
 ## Installation
 

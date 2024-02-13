@@ -28,13 +28,14 @@
             "synopsis": "A simple color picker app for Linux"
         }
     },
+    "repository": "https://github.com/KartoffelChipss/hexpick",
     "keywords": ["electron", "colorpicker", "app", "desktop", "application", "color", "picker", "rgb", "hex", "hsl", "hsv", "cmyk"],
     "author": {
         "name": "Jan Straßburger",
         "email": "contact@strassburger.org",
         "url": "https://strassburger.org/"
     },
-    "homepage": "https://github.com/kartoffelchipss/hexpick",
+    "homepage": "https://github.com/kartoffelchipss/hexpick#readme",
     "license": "GNU General Public License v3.0",
     "devDependencies": {
         "electron": "^22.0.0",

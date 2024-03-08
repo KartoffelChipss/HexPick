@@ -1,17 +1,21 @@
-const { app, BrowserWindow, clipboard, Tray, Notification, dialog, nativeImage, Menu, shell, screen, nativeTheme, globalShortcut } = require("electron");
+const { app, BrowserWindow, Menu } = require("electron");
 const { ipcMain } = require("electron/main");
 const path = require("path");
-const fs = require("fs");
 const Store = require("electron-store");
 const appName = "HexPick";
+const logger = require("electron-log");
 const { runColorPicker } = require("electron-color-picker/library/linux/index");
 
-const devMode = false;
+const appRoot = path.join(`${app.getPath("appData") ?? "."}${path.sep}.hexpick`);
+logger.transports.file.resolvePathFn = () => path.join(appRoot, "logs.log");
+logger.transports.file.level = "info";
+
+const devMode = process.env.NODE_ENV === 'development';
 
 if (devMode) {
-    console.log("====== ======");
-    console.log("Started in devmode!");
-    console.log("====== ======\n");
+    logger.info("====== ======");
+    logger.info("Started in devmode!");
+    logger.info("====== ======\n");
 }
 
 const store = new Store();
@@ -36,11 +40,14 @@ app.whenReady().then(async () => {
     });
 
     ipcMain.handle("startPicking", async (e, data) => {
+        logger.info("Starting color picker");
         const colorObj = await runColorPicker().catch((error) => {
-            console.warn("[ERROR] getColor", error);
+            logger.warn("[ERROR] getColor", error);
             return "";
         });
         const color = colorObj.possibleColorString;
+
+        logger.info("Picked color: " + color);
         
         top.mainWindow.webContents.send("pickedColor", color);
 
@@ -85,6 +92,8 @@ app.whenReady().then(async () => {
         top.mainWindow.show();
     });
 
+    if (!devMode) Menu.setApplicationMenu(null);
+
     top.mainWindow.on("close", () => {
         const bounds = top.mainWindow.getBounds();
         store.set("windowPosition", bounds);
@@ -94,4 +103,5 @@ app.whenReady().then(async () => {
 function updateLastColors() {
     const lastColors = store.get("lastColors") || [];
     top.mainWindow.webContents.send("updateLastColors", lastColors);
+    logger.info("Sending last colors to mainWindow");
 }

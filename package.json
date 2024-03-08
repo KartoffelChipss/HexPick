@@ -1,11 +1,14 @@
 {
     "name": "hexpick",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "A simple color picker app for Linux",
     "main": "./src/app.js",
     "scripts": {
-        "start": "electron .",
-        "build": "electron-builder --linux"
+        "start": "NODE_ENV=development electron .",
+        "startprod": "NODE_ENV=production electron .",
+        "build": "npm run build:deb && npm run build:snap",
+        "build:deb": "electron-builder --linux deb",
+        "build:snap": "electron-builder --linux snap"
     },
     "build": {
         "appId": "hexpick",
@@ -26,6 +29,17 @@
             "maintainer": "Jan Straßburger",
             "vendor": "Jan Straßburger",
             "synopsis": "A simple color picker app for Linux"
+        },
+        "snap": {
+            "stagePackages": [
+                "default",
+                "giblib1",
+                "libimlib2",
+                "libx11-6",
+                "libxcursor1",
+                "libxfixes3",
+                "scrot"
+            ]
         }
     },
     "repository": "https://github.com/KartoffelChipss/hexpick",
@@ -52,10 +66,12 @@
     "license": "GNU General Public License v3.0",
     "devDependencies": {
         "electron": "^29.1.1",
-        "electron-builder": "^24.9.1"
+        "electron-builder": "^24.9.1",
+        "electron-installer-snap": "^5.2.0"
     },
     "dependencies": {
         "electron-color-picker": "^0.2.0",
+        "electron-log": "^5.1.1",
         "electron-store": "^8.1.0",
         "fs": "^0.0.1-security",
         "path": "^0.12.7"

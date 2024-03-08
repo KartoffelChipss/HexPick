@@ -29,7 +29,20 @@
         }
     },
     "repository": "https://github.com/KartoffelChipss/hexpick",
-    "keywords": ["electron", "colorpicker", "app", "desktop", "application", "color", "picker", "rgb", "hex", "hsl", "hsv", "cmyk"],
+    "keywords": [
+        "electron",
+        "colorpicker",
+        "app",
+        "desktop",
+        "application",
+        "color",
+        "picker",
+        "rgb",
+        "hex",
+        "hsl",
+        "hsv",
+        "cmyk"
+    ],
     "author": {
         "name": "Jan Straßburger",
         "email": "contact@strassburger.org",
@@ -38,7 +51,7 @@
     "homepage": "https://github.com/kartoffelchipss/hexpick#readme",
     "license": "GNU General Public License v3.0",
     "devDependencies": {
-        "electron": "^22.0.0",
+        "electron": "^29.1.1",
         "electron-builder": "^24.9.1"
     },
     "dependencies": {
